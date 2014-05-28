@@ -9,9 +9,14 @@ class FreightTransaction {
 	Integer invUnitsTotal	
 	Integer invoiceValue	
 	Integer invoiceNoOfCases	
-	Double weightOfInvoice	
-	Double perKgOrCaseCost	//Load based on cfa and dist
-	Double grCharges	//ditto as abv
+	Double weightOfInvoice
+	String freightModel	
+	Double weightInKgs  //-- from where ?? -- not populated
+	Double costPerKg
+	Double costPerCase
+	Double perKgOrCaseCost	//Load based on cfa and dist -- not used
+	Double grLrCharges	//ditto as abv
+	Double otherCharges // sum of all d ther charges  against a distributor ??
 	Integer actualCases	// entered by cfa
 	Double totalAmount //Calculate
 	

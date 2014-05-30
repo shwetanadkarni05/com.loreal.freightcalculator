@@ -232,7 +232,7 @@
                                   <label for="perKgOrCaseCost"><g:message code="freightTransaction.perKgOrCaseCost.label" default="Per Kg Or Case Cost" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: freightTransactionInstance, field: 'perKgOrCaseCost', 'errors')}">
-                                    <g:textField name="perKgOrCaseCost" value="${fieldValue(bean: freightTransactionInstance, field: 'perKgOrCaseCost')}" />
+                                    <g:textField name="p`erKgOrCaseCost" value="${fieldValue(bean: freightTransactionInstance, field: 'perKgOrCaseCost')}" />
                                 </td>
                             </tr>
                         

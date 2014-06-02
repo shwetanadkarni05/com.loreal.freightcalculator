@@ -10,7 +10,7 @@ class DistributorController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [distributorInstanceList: Distributor.list(params), distributorInstanceTotal: Distributor.count()]
+        [distributorInstanceList: Distributor.findAllWhere(isDeleted: false), distributorInstanceTotal: Distributor.countByIsDeleted(false)]
     }
 
     //def create = {
@@ -84,7 +84,8 @@ class DistributorController {
         def distributorInstance = Distributor.get(params.id)
         if (distributorInstance) {
             try {
-                distributorInstance.delete(flush: true)
+				distributorInstance.isDeleted = true
+                distributorInstance.save(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'distributor.label', default: 'Distributor'), params.id])}"
                 redirect(action: "list")
             }

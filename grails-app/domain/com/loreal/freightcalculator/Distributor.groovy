@@ -18,9 +18,14 @@ class Distributor {
 	Double vat
 	Double surcharge
 	Double labourCharges
+	Boolean isDeleted 
 	
 	static constraints = {
 		freightStructure (blank:false, nullable:false,inList:["Per Trip","Per Kg","Per Case","Fixed Vehicle","Per Invoice"])
+		divisionCode (blank:true, nullable:true)
+		isDeleted (blank:true, nullable:true)
+		handlingCharges (blank:true, nullable:true)
+		
 	
 	}
 	

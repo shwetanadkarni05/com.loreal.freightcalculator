@@ -22,17 +22,22 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'distributor.id.label', default: 'Id')}" />
+                            <g:sortableColumn property="id" title="${message(code: 'distributor.id.label', default: 'Sr No')}" />
                         
-                            <th><g:message code="distributor.cfa.label" default="Cfa" /></th>
-                        
+                            <th><g:message code="distributor.cfaCode.label" default="Cfa Code" /></th>
+							<th><g:message code="distributor.cfaRegion.label" default="Cfa Region" /></th>
+							<th><g:message code="distributor.cfaLocation.label" default="Cfa Location" /></th>
+							<g:sortableColumn property="divisionCode" title="${message(code: 'distributor.divisionCode.label', default: 'Division Code')}" />
+							<g:sortableColumn property="customerCode" title="${message(code: 'distributor.customerCode.label', default: 'Customer Code')}" />
+							<g:sortableColumn property="customerName" title="${message(code: 'distributor.customerName.label', default: 'Customer Name')}" />
                             <g:sortableColumn property="customerCity" title="${message(code: 'distributor.customerCity.label', default: 'Customer City')}" />
-                        
-                            <g:sortableColumn property="customerCode" title="${message(code: 'distributor.customerCode.label', default: 'Customer Code')}" />
-                        
-                            <g:sortableColumn property="customerName" title="${message(code: 'distributor.customerName.label', default: 'Customer Name')}" />
-                        
-                            <g:sortableColumn property="deliveryCharges" title="${message(code: 'distributor.deliveryCharges.label', default: 'Delivery Charges')}" />
+                            <g:sortableColumn property="freightStructure" title="${message(code: 'distributor.freightStructure.label', default: 'Freight Structure')}" />
+							<g:sortableColumn property="costPerUnit" title="${message(code: 'distributor.costPerUnit.label', default: 'Cost Per Unit Based On Freight Structure')}" />
+							<g:sortableColumn property="grlrCharges" title="${message(code: 'distributor.grlrCharges.label', default: 'GR/LR Charges')}" />
+							<g:sortableColumn property="handlingCharges" title="${message(code: 'distributor.handlingCharges.label', default: 'Handling Charges')}" />
+							<g:sortableColumn property="deliveryCharges" title="${message(code: 'distributor.deliveryCharges.label', default: 'Delivery Charges')}" />
+							<g:sortableColumn property="loadingUnloadingCharges" title="${message(code: 'distributor.loadingUnloadingCharges.label', default: 'Loading / Unloading Charges')}" />
+							<g:sortableColumn property="fuelCharges" title="${message(code: 'distributor.fuelCharges.label', default: 'Fuel Surcharges')}" />
                         
                         </tr>
                     </thead>
@@ -42,15 +47,33 @@
                         
                             <td><g:link action="show" id="${distributorInstance.id}">${fieldValue(bean: distributorInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: distributorInstance, field: "cfa")}</td>
+                            <td>${distributorInstance.cfa.userCode}</td>
+							
+							<td>${distributorInstance.cfa.userRegion}</td>
+							
+							<td>${distributorInstance.cfa.userLocation}</td>
+							
+							<td>${fieldValue(bean: distributorInstance, field: "divisionCode")}</td>
+							
+							<td>${fieldValue(bean: distributorInstance, field: "customerCode")}</td>
+							
+							<td>${fieldValue(bean: distributorInstance, field: "customerName")}</td>
                         
                             <td>${fieldValue(bean: distributorInstance, field: "customerCity")}</td>
                         
-                            <td>${fieldValue(bean: distributorInstance, field: "customerCode")}</td>
-                        
-                            <td>${fieldValue(bean: distributorInstance, field: "customerName")}</td>
-                        
-                            <td>${fieldValue(bean: distributorInstance, field: "deliveryCharges")}</td>
+                            <td>${fieldValue(bean: distributorInstance, field: "freightStructure")}</td>
+							
+							<td>${fieldValue(bean: distributorInstance, field: "rate")}</td>
+							
+							<td>${fieldValue(bean: distributorInstance, field: "grlrCharges")}</td>
+							
+							<td>${fieldValue(bean: distributorInstance, field: "handlingCharges")}</td>
+							
+							<td>${fieldValue(bean: distributorInstance, field: "deliveryCharges")}</td>
+							
+							<td>${fieldValue(bean: distributorInstance, field: "loadingUnloadingCharges")}</td>                       
+                            
+                            <td>${fieldValue(bean: distributorInstance, field: "fuelCharges")}</td>
                         
                         </tr>
                     </g:each>

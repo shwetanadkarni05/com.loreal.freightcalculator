@@ -1,5 +1,7 @@
 package com.loreal.freightcalculator
 
+import com.loreal.DataExcelImporter
+
 class DistributorController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -99,4 +101,31 @@ class DistributorController {
             redirect(action: "list")
         }
     }
+	
+	def importDistributorData = {
+		render(view: "importDistributorData")
+	}
+	
+	def excelImport = {
+		println params.fileUpload
+		if(params.fileUpload){
+			if(params.fileUpload instanceof org.springframework.web.multipart.commons.CommonsMultipartFile){
+				//new FileOutputStream('d:/submitted_file').leftShift( params.fileUpload.getInputStream() );
+				//params.cfile.transferTo(new File('D:/submitted_file'));
+				DataExcelImporter importer = new DataExcelImporter(params.fileUpload.originalFilename);
+				def booksMapList = importer.getCFAs();
+		   
+				booksMapList.each { Map cfaParams ->
+					println cfaParams
+				}
+		   
+				  // new Book(importer.getOneMoreBookParams()).save()
+				   
+			}else{
+				log.error("wrong attachment type [${fileUpload.getClass()}]");
+			}
+		}
+		
+		render(view: "importDistributorData")
+	}
 }

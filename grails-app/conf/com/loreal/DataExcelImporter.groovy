@@ -11,6 +11,19 @@ class DataExcelImporter extends AbstractExcelImporter {
 					 'B':'cfacode',
 					 'C':'cfaregion',
 					 'D':'cfalocation',
+					 'E':'divisioncode',
+					 'F':'customercode',
+					 'G':'customername',
+					 'H':'customercity',
+					 'I':'freightstructure',
+					 'J':'costperinvoicelr',
+					 'K':'costperkg',
+					 'L':'costpercase',
+					 'M':'grlrcharges',
+					 'N':'handlingcharges',
+					 'O':'deliverycharges',
+					 'P':'loadingunloadingcharges',
+					 'Q':'fuelsurcharges'
 			 ]
 	 ]
    

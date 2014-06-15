@@ -13,11 +13,11 @@ class User {
 
 	static constraints = {
 		userCode (nullable:false,unique:true)
-		userFullName (blank:false, nullable:false, matches:"[a-zA-Z ]+")
+		userFullName (blank:false, nullable:false, matches:"[a-zA-Z0-9- ]+")
 		userRole (blank:false, nullable:false,inList:["MANAGEMENT","CFA","RLM"])
 		userLocation (blank:false, nullable:false)
 		userRegion (blank:false, nullable:false,inList:["North","South","West","East"])
-		userName (blank:false, nullable:false,matches:"[a-zA-Z1-9_]+",minSize:8)
+		userName (blank:false, nullable:false,matches:"[a-zA-Z1-9_-]+",minSize:8)
 		userPassword (blank:false, nullable:false,minSize:8,password:true)
 	}
 	

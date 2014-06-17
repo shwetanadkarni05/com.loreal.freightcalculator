@@ -5,7 +5,7 @@ import org.grails.plugins.excelimport.*
 
 class FreightExcelImporter extends AbstractExcelImporter {
 	 static Map CONFIG_FREIGHT_COLUMN_MAP = [
-			 sheet:'Sheet1',
+			 sheet:'ZIV12-1410',
 				startRow: 2,
 			 columnMap:  [
 				 	 'A':'plant',

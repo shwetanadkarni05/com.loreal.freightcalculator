@@ -2,6 +2,7 @@ package com.loreal.freightcalculator
 
 import com.loreal.FreightExcelImporter
 import com.loreal.freightcalculator.Distributor
+import com.loreal.freightcalculator.User
 
 class FreightTransactionController {
 
@@ -22,6 +23,16 @@ class FreightTransactionController {
 	}
 
 	def displayCalculateFreight={
+		def signedInUser = session.user
+		def cfaCode = signedInUser.id
+		def distList = Distributor.findAllWhere(cfa:signedInUser)
+		def freightList = []
+		distList.each {dist -> 
+			freightList += FreightTransaction.findAllWhere(distributor:dist,actualCases:null,totalAmount:null)
+		}
+		def freightTransactionInstanceTotal = freightList.size()
+		render(view: "list", model: [distList:distList,freightTransactionInstanceList:freightList,freightTransactionInstanceTotal:freightTransactionInstanceTotal])
+		
 		
 	}
 	

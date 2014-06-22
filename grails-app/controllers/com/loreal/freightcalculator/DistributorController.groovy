@@ -34,6 +34,43 @@ class DistributorController {
         //return [distributorInstance: distributorInstance]
     //}
 	
+	def addNewConditions = {
+		def signedInUser = session.user
+		def distList,cfaList 
+		def region
+		if(signedInUser.userRole=='RLM'){
+			region = signedInUser.userRegion
+			cfaList = User.findAllWhere(userRegion:region)
+			distList=[]
+			cfaList.each {cfa ->
+				distList += (Distributor.findAllWhere(cfa:cfa))
+			}
+		}
+		[signedInUser:signedInUser,distList:distList,cfaList:cfaList]
+	}
+	
+	def saveNewCondition = {
+		DistributorConditions dc = new DistributorConditions()
+		def distributorSelected = params.distributor
+		dc.distributor = Distributor.get(distributorSelected)
+		dc.billingType = params.billingType
+		dc.minumumNumberOfCases = Integer.parseInt(params.minumumNoOfCases) 
+		dc.minumumWeighInKgs = Double.parseDouble(params.minumumWeightInKgs) 
+		dc.fixedFreight = params.fixedFreight
+		dc.deliveryCharges = params.deliveryCharges
+		dc.lrCharges = params.lrCharges
+		
+		if (dc.save(flush: true)) {
+			flash.message = "Distributor Condition Saved Successfully"
+			redirect(controller:"user",action: "menu")
+		}
+		else {
+			flash.message = "Distributor Condition Not Saved. Please Re Enter Values"
+			redirect(action: "addNewConditions")
+		}
+	}
+	
+	
 	def addConditions = {
 		def signedInUser = session.user
 		def cfaDistributorMap = [:]
@@ -188,6 +225,8 @@ class DistributorController {
             redirect(action: "list")
         }
     }
+	
+	
 	
 	def importDistributorData = {
 		render(view: "importDistributorData")

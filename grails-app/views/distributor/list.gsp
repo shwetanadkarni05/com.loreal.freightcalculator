@@ -32,7 +32,9 @@
 							<g:sortableColumn property="customerName" title="${message(code: 'distributor.customerName.label', default: 'Customer Name')}" />
                             <g:sortableColumn property="customerCity" title="${message(code: 'distributor.customerCity.label', default: 'Customer City')}" />
                             <g:sortableColumn property="freightStructure" title="${message(code: 'distributor.freightStructure.label', default: 'Freight Structure')}" />
-							<g:sortableColumn property="costPerUnit" title="${message(code: 'distributor.costPerUnit.label', default: 'Cost Per Unit Based On Freight Structure')}" />
+							<g:sortableColumn property="costPerUnit" title="${message(code: 'distributor.costPerUnit.label', default: 'Cost Per Kg')}" />
+							<g:sortableColumn property="costPerUnit" title="${message(code: 'distributor.costPerUnit.label', default: 'Cost Per Case')}" />
+							<g:sortableColumn property="costPerUnit" title="${message(code: 'distributor.costPerUnit.label', default: 'Cost Per Invoice')}" />
 							<g:sortableColumn property="grlrCharges" title="${message(code: 'distributor.grlrCharges.label', default: 'GR/LR Charges')}" />
 							<g:sortableColumn property="handlingCharges" title="${message(code: 'distributor.handlingCharges.label', default: 'Handling Charges')}" />
 							<g:sortableColumn property="deliveryCharges" title="${message(code: 'distributor.deliveryCharges.label', default: 'Delivery Charges')}" />
@@ -63,7 +65,11 @@
                         
                             <td>${fieldValue(bean: distributorInstance, field: "freightStructure")}</td>
 							
-							<td>${fieldValue(bean: distributorInstance, field: "rate")}</td>
+							<td>${fieldValue(bean: distributorInstance, field: "costPerKg")}</td>
+							
+							<td>${fieldValue(bean: distributorInstance, field: "costPerCase")}</td>
+							
+							<td>${fieldValue(bean: distributorInstance, field: "costPerInvoice")}</td>
 							
 							<td>${fieldValue(bean: distributorInstance, field: "grlrCharges")}</td>
 							

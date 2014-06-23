@@ -88,7 +88,7 @@ class FreightTransactionController {
 						newFreight.weightOfInvoice = freightMap.get('weightofinvoice')
 						
 						newFreight.freightModel = dist.freightStructure
-						newFreight.weightInKgs = 0.0 	// TODO
+						newFreight.weightInKgs = (newFreight.weightOfInvoice)/1000 
 						newFreight.costPerCase = dist.costPerCase
 						newFreight.costPerKg = dist.costPerKg
 						newFreight.grLrCharges = dist.grlrCharges

@@ -4,8 +4,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
+        <g:javascript src="calculateFreight.js" />
         <g:set var="entityName" value="${message(code: 'freightTransaction.label', default: 'FreightTransaction')}" />
         <title>Calculate Freight</title>
+        
     </head>
     <body>
         <div class="nav">
@@ -17,9 +19,9 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
-                <table>
-                    <thead>
-                        <tr>
+                <table id="invTable">
+                    <thead id="invTableHead">
+                        <tr id="invTableHeadRow">
                         
                             <g:sortableColumn property="id" title="${message(code: 'freightTransaction.id.label', default: 'Sr No')}" />
                         
@@ -71,9 +73,9 @@
                         
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="invTableBody" >
                     <g:each in="${freightTransactionInstanceList}" status="i" var="freightTransactionInstance">
-                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+                        <tr id="invTableBodyRow${i}"class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                             <td>${fieldValue(bean: freightTransactionInstance, field: "id")}</td>
                         
@@ -122,6 +124,8 @@
                             <td><g:textField name="actualCases" value="${fieldValue(bean: freightTransactionInstance, field: 'actualCases')}"/></td>
                             
                             <td><g:textField name="totalAmount" value="${fieldValue(bean: freightTransactionInstance, field: 'totalAmount')}" readonly="readonly"/></td>
+                            
+                            <td hidden="true">${freightTransactionInstance?.distributor?.costPerInvoice}</td>
                                                    
                         </tr>
                     </g:each>
@@ -132,7 +136,7 @@
                 <g:paginate total="${freightTransactionInstanceTotal}" />
             </div>
             <div>
-            		<span class="button"><g:actionSubmit class="save" action="calculateFreightTotal" value="${message(code: 'default.button.calculate.label', default: 'Calculate')}" /></span>
+            		<span class="button"><g:actionSubmit class="save" action="calculateFreightTotal" value="${message(code: 'default.button.calculate.label', default: 'Calculate')}" onClick="calculateInv()"/></span>
                     
             </div>
         </div>

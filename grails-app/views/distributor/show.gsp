@@ -21,7 +21,8 @@
             <div class="dialog">
                 <table>
                     <tbody>
-                    
+					<td>${distributorInstance.cfa.userCode}</td>
+							
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="distributor.id.label" default="Id" /></td>
                             
@@ -32,7 +33,28 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="distributor.cfa.label" default="Cfa" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="user" action="show" id="${distributorInstance?.cfa?.id}">${distributorInstance?.cfa?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="user" action="show" id="${distributorInstance?.cfa?.id}">${distributorInstance?.cfa?.userCode}</g:link></td>
+                            
+                        </tr>
+						
+						<tr class="prop">
+                            <td valign="top" class="name"><g:message code="distributor.divisionCode.label" default="Division Code" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "divisionCode")}</td>
+                            
+                        </tr>
+						
+						<tr class="prop">
+                            <td valign="top" class="name"><g:message code="distributor.customerCode.label" default="Customer Code" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "customerCode")}</td>
+                            
+                        </tr>
+
+						<tr class="prop">
+                            <td valign="top" class="name"><g:message code="distributor.customerName.label" default="Customer Name" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "customerName")}</td>
                             
                         </tr>
                     
@@ -44,41 +66,6 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="distributor.customerCode.label" default="Customer Code" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "customerCode")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="distributor.customerName.label" default="Customer Name" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "customerName")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="distributor.deliveryCharges.label" default="Delivery Charges" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "deliveryCharges")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="distributor.docketCharges.label" default="Docket Charges" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "docketCharges")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="distributor.exciseDuty.label" default="Excise Duty" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "exciseDuty")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="distributor.freightStructure.label" default="Freight Structure" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "freightStructure")}</td>
@@ -86,61 +73,61 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="distributor.fuelCharges.label" default="Fuel Charges" /></td>
+                            <td valign="top" class="name"><g:message code="distributor.costPerKg.label" default="Cost Per Kg" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "fuelCharges")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "costPerKg")}</td>
                             
                         </tr>
-                    
-                        <tr class="prop">
+						
+						<tr class="prop">
+                            <td valign="top" class="name"><g:message code="distributor.costPerCase.label" default="Cost Per Case" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "costPerCase")}</td>
+                            
+                        </tr>
+						
+						<tr class="prop">
+                            <td valign="top" class="name"><g:message code="distributor.costPerInvoice.label" default="Cost Per Invoice" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "costPerInvoice")}</td>
+                            
+                        </tr>
+						
+						<tr class="prop">
                             <td valign="top" class="name"><g:message code="distributor.grlrCharges.label" default="Grlr Charges" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "grlrCharges")}</td>
                             
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="distributor.labourCharges.label" default="Labour Charges" /></td>
+						
+						<tr class="prop">
+                            <td valign="top" class="name"><g:message code="distributor.handlingCharges.label" default="Handling Charges" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "labourCharges")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "handlingCharges")}</td>
                             
                         </tr>
-                    
+						
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="distributor.deliveryCharges.label" default="Delivery Charges" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "deliveryCharges")}</td>
+                            
+                        </tr>
+						
+						<tr class="prop">
                             <td valign="top" class="name"><g:message code="distributor.loadingUnloadingCharges.label" default="Loading Unloading Charges" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "loadingUnloadingCharges")}</td>
                             
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="distributor.rate.label" default="Rate" /></td>
+						
+						<tr class="prop">
+                            <td valign="top" class="name"><g:message code="distributor.fuelCharges.label" default="Fuel Charges" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "rate")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="distributor.serviceTaxRate.label" default="Service Tax Rate" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "serviceTaxRate")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "fuelCharges")}</td>
                             
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="distributor.surcharge.label" default="Surcharge" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "surcharge")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="distributor.vat.label" default="Vat" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: distributorInstance, field: "vat")}</td>
-                            
-                        </tr>
-                    
                     </tbody>
                 </table>
             </div>

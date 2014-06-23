@@ -48,6 +48,15 @@
 							
 							<tr class="prop">
                                 <td valign="top" class="name">
+                                  <label for="divisionCode"><g:message code="distributor.divisionCode.label" default="Division Code" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'divisionCode', 'errors')}">
+                                    <g:textField name="divisionCode" value="${fieldValue(bean: distributorInstance, field: 'divisionCode')}" readonly="readonly" />
+                                </td>
+                            </tr>
+							
+							<tr class="prop">
+                                <td valign="top" class="name">
                                   <label for="customerCode"><g:message code="distributor.customerCode.label" default="Customer Code" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'customerCode', 'errors')}">
@@ -84,10 +93,28 @@
 							
 							<tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="rate"><g:message code="distributor.rate.label" default="Rate Per KG / Case" /></label>
+                                  <label for="costPerKg"><g:message code="distributor.costPerKg.label" default="Cost Per Kg" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'costPerKg', 'errors')}">
+                                    <g:textField name="costPerKg" value="${fieldValue(bean: distributorInstance, field: 'costPerKg')}" />
+                                </td>
+                            </tr>
+							
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="costPerCase"><g:message code="distributor.costPerCase.label" default="Cost Per Case" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'costPerCase', 'errors')}">
+                                    <g:textField name="costPerCase" value="${fieldValue(bean: distributorInstance, field: 'costPerCase')}" />
+                                </td>
+                            </tr>
+							
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="costPerInvoice"><g:message code="distributor.costPerInvoice.label" default="Cost Per Invoice" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'rate', 'errors')}">
-                                    <g:textField name="rate" value="${fieldValue(bean: distributorInstance, field: 'rate')}" />
+                                    <g:textField name="costPerInvoice" value="${fieldValue(bean: distributorInstance, field: 'costPerInvoice')}" />
                                 </td>
                             </tr>
 							
@@ -100,7 +127,14 @@
                                 </td>
                             </tr>
 														
-							
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="handlingCharges"><g:message code="distributor.handlingCharges.label" default="Handling Charges" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'handlingCharges', 'errors')}">
+                                    <g:textField name="handlingCharges" value="${fieldValue(bean: distributorInstance, field: 'handlingCharges')}" />
+                                </td>
+                            </tr>
 							
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -128,60 +162,6 @@
                                     <g:textField name="fuelCharges" value="${fieldValue(bean: distributorInstance, field: 'fuelCharges')}" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="docketCharges"><g:message code="distributor.docketCharges.label" default="Docket Charges" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'docketCharges', 'errors')}">
-                                    <g:textField name="docketCharges" value="${fieldValue(bean: distributorInstance, field: 'docketCharges')}" />
-                                </td>
-                            </tr>
-							
-							<tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="serviceTaxRate"><g:message code="distributor.serviceTaxRate.label" default="Service Tax Rate" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'serviceTaxRate', 'errors')}">
-                                    <g:textField name="serviceTaxRate" value="${fieldValue(bean: distributorInstance, field: 'serviceTaxRate')}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="exciseDuty"><g:message code="distributor.exciseDuty.label" default="Excise Duty" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'exciseDuty', 'errors')}">
-                                    <g:textField name="exciseDuty" value="${fieldValue(bean: distributorInstance, field: 'exciseDuty')}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="vat"><g:message code="distributor.vat.label" default="Vat" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'vat', 'errors')}">
-                                    <g:textField name="vat" value="${fieldValue(bean: distributorInstance, field: 'vat')}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="surcharge"><g:message code="distributor.surcharge.label" default="Surcharge" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'surcharge', 'errors')}">
-                                    <g:textField name="surcharge" value="${fieldValue(bean: distributorInstance, field: 'surcharge')}" />
-                                </td>
-                            </tr>     
-                            
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="labourCharges"><g:message code="distributor.labourCharges.label" default="Labour Charges" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: distributorInstance, field: 'labourCharges', 'errors')}">
-                                    <g:textField name="labourCharges" value="${fieldValue(bean: distributorInstance, field: 'labourCharges')}" />
-                                </td>
-                            </tr>                        
                         
                         </tbody>
                     </table>

@@ -16,7 +16,7 @@ class User {
 		userFullName (blank:false, nullable:false, matches:"[a-zA-Z0-9- ]+")
 		userRole (blank:false, nullable:false,inList:["MANAGEMENT","CFA","RLM"])
 		userLocation (blank:false, nullable:false)
-		userRegion (blank:false, nullable:false,inList:["North","South","West","East"])
+		userRegion (blank:false, nullable:false,inList:["North","South","West","East","India"])
 		userName (blank:false, nullable:false,matches:"[a-zA-Z1-9_-]+",minSize:8)
 		userPassword (blank:false, nullable:false,minSize:8,password:true)
 	}

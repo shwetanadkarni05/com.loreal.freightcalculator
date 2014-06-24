@@ -10,7 +10,8 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><g:link class="create" action="addConditions">Add Conditions For Distributor</g:link></span>
+            <span class="menuButton"><g:link class="create" controller="user" action="menu">Menu</g:link></span>
+            <span class="menuButton"><g:link class="create" action="addNewConditions">Add Conditions For Distributor</g:link></span>
         </div>
         <div class="body">
             <h1>List Distributor Conditions</h1>
@@ -26,7 +27,7 @@
                             <th><g:message code="distributorConditions.distributor.cfaCode.label" default="Cfa Code" /></th>
 							<g:sortableColumn property="customerCode" title="${message(code: 'distributorConditions.distributor.customerCode.label', default: 'Customer Code')}" />
 							<g:sortableColumn property="customerName" title="${message(code: 'distributorConditions.billingType.label', default: 'Billing Type')}" />
-                            <g:sortableColumn property="customerCity" title="${message(code: 'distributorConditions.minumumNumberOfCases.label', default: Minumum No. of Cases')}" />
+                            <g:sortableColumn property="customerCity" title="${message(code: 'distributorConditions.minumumNumberOfCases.label', default: 'Minumum No. of Cases')}" />
                             <g:sortableColumn property="freightStructure" title="${message(code: 'distributorConditions.minumumWeighInKgs.label', default: 'Minumum Weight in Kgs')}" />
 							<g:sortableColumn property="costPerUnit" title="${message(code: 'distributorConditions.fixedFreight.label', default: 'Fixed Freight')}" />
 							<g:sortableColumn property="grlrCharges" title="${message(code: 'distributorConditions.deliveryCharges.label', default: 'Delivery Charges')}" />
@@ -45,17 +46,17 @@
 							
 							<td>${conditionInstance.distributor.customerCode}</td>
 							
-							<td>${fieldValue(bean: conditionInstance, field: "billingType")}</td>
+							<td>${conditionInstance.billingType}</td>
                         
-                            <td>${fieldValue(bean: conditionInstance, field: "minumumNumberOfCases")}</td>
+                            <td>${conditionInstance.minumumNumberOfCases}</td>
                         
-                            <td>${fieldValue(bean: conditionInstance, field: "minumumWeighInKgs")}</td>
+                            <td>${conditionInstance.minumumWeighInKgs}</td>
 							
-							<td>${fieldValue(bean: conditionInstance, field: "fixedFreight")}</td>
+							<td>${conditionInstance.fixedFreight}</td>
 							
-							<td>${fieldValue(bean: conditionInstance, field: "deliveryCharges")}</td>
+							<td>${conditionInstance.deliveryCharges}</td>
 							
-							<td>${fieldValue(bean: conditionInstance, field: "lrCharges")}</td>						
+							<td>${conditionInstance.lrCharges}</td>						
                         
                         </tr>
                     </g:each>

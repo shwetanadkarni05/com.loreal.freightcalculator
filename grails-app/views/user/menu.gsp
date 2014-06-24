@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Freight Calculator</title>
+        <title>Freight Calculator Menu</title>
         <meta name="layout" content="main" />
         <style type="text/css" media="screen">
 
@@ -62,15 +62,14 @@
         <div id="pageBody">
             <div id="controllerList" class="dialog">
                 <h2>Welcome to L'Oreal Freight Calculator</h2>
-				<h2>Mr. ${session.user.userFullName} </h2>
+				<h2>${session.user.userFullName} </h2>
                 <ul>
 					
                     <g:if test="${session.user.userRole=='RLM'}">
+                    	
             			<li class="controller"><g:link controller="distributor" action="list">View/Edit Distributor Data</g:link></li>
 						<li class="controller"><g:link controller="distributor" action="importDistributorData">Import New Distributor Data</g:link></li>
-						<li class="controller"><g:link controller="distributor" action="viewReport">View Reports</g:link></li>
-						<!-- <li class="controller"><g:link controller="distributor" action="addConditions">Add Conditions</g:link></li> -->
-						<li class="controller"><g:link controller="distributor" action="addNewConditions">Add New Conditions</g:link></li>
+						<li class="controller"><g:link controller="distributor" action="addNewConditions">Add/Edit New Conditions</g:link></li>
 						<li class="controller"><g:link controller="freightTransaction" action="importInvoiceData">Import Invoice Data</g:link></li>
 						<li class="controller"><g:link controller="freightTransaction" action="displayCalculateFreight">Calculate Freight</g:link></li>						
             		</g:if>
@@ -80,9 +79,7 @@
 					</g:if>
 					<g:if test="${session.user.userRole=='MANAGEMENT'}">
 						<li class="controller"><g:link controller="user" action="list">Add/Edit User Information</g:link></li>
-						<li class="controller"><g:link controller="distributor" action="viewReport">View Reports</g:link></li>
-						<!-- <li class="controller"><g:link controller="distributor" action="addConditions">Add Conditions</g:link></li> -->
-						<li class="controller"><g:link controller="distributor" action="addNewConditions">Add New Conditions</g:link></li>						
+						<li class="controller"><g:link controller="distributor" action="addNewConditions">Add/Edit New Conditions</g:link></li>						
 						<li class="controller"><g:link controller="distributor" action="list">View/Edit Distributor Data</g:link></li>
 						<li class="controller"><g:link controller="distributor" action="importDistributorData">Import New Distributor Data</g:link></li>
 						<li class="controller"><g:link controller="freightTransaction" action="importInvoiceData">Import Invoice Data</g:link></li>

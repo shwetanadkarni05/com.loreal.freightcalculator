@@ -6,15 +6,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'distributor.label', default: 'Distributor')}" />
-        <title>Add Conditions For Distributor</title>
+        <title>List Distributor Conditions</title>
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" controller="user" action="menu">Menu</g:link></span>
+            <span class="menuButton"><g:link class="create" controller="user" action="menu">Menu</g:link></span>            
         </div>
         <div class="body">
-            <h1>Add Conditions For Distributor</h1>
+            <h1>List Distributor Conditions</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>

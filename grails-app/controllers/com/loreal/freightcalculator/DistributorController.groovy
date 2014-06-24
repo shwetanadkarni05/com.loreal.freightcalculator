@@ -53,16 +53,16 @@ class DistributorController {
 		DistributorConditions dc = new DistributorConditions()
 		def distributorSelected = params.distributor
 		dc.distributor = Distributor.get(distributorSelected)
-		dc.billingType = params.billingType
-		dc.minumumNumberOfCases = Integer.parseInt(params.minumumNoOfCases) 
-		dc.minumumWeighInKgs = Double.parseDouble(params.minumumWeightInKgs) 
-		dc.fixedFreight = params.fixedFreight
-		dc.deliveryCharges = params.deliveryCharges
-		dc.lrCharges = params.lrCharges
+		dc.billingType = params.billingType?params.billingType:""
+		dc.minumumNumberOfCases = params.minumumNoOfCases?Integer.parseInt(params.minumumNoOfCases):null
+		dc.minumumWeighInKgs = params.minumumWeightInKgs?Double.parseDouble(params.minumumWeightInKgs):null 
+		dc.fixedFreight = params.fixedFreight?params.fixedFreight:null
+		dc.deliveryCharges = params.deliveryCharges?params.deliveryCharges:null
+		dc.lrCharges = params.lrCharges?params.lrCharges:null
 		
 		if (dc.save(flush: true)) {
 			flash.message = "Distributor Condition Saved Successfully"
-			redirect(controller:"user",action: "menu")
+			redirect(action: "addConditions")
 		}
 		else {
 			flash.message = "Distributor Condition Not Saved. Please Re Enter Values"
@@ -86,8 +86,6 @@ class DistributorController {
 				cfaDistributorMap.put((cfaId),distributorList)//${cfa.id} = distributorList
 			}			
 		}
-		print "__________________________________________________"
-		print cfaDistributorMap
 		[cfaList:cfaList,cfaDistributorMap:cfaDistributorMap,cfaSelected:cfaSelected]
 	}
 	
@@ -96,12 +94,28 @@ class DistributorController {
 		def conditionsList =[]
 		def cfaSelected = params.cfa
 		def distributorsSelected = params.distributor
+		//println ("\n\n\n\n--------INITIALLY BEFORE LOOP --- "+ distributorsSelected)
+		//println("CLASSSSS -- "+distributorsSelected.class)
+//		if(distributorsSelected.class == "class java.lang.String"){
+//			println ("Single select")
+//		}else{
+//		println ("NOT Single select")
+//		}
+		
 		distributorsSelected.each { distId -> 
+			//println ("----------- customerName"+distId)
 			dist = Distributor.get(distId)
-			conditionsList.add(DistributorConditions.findAllWhere(distributor:dist))
+			//println ("DISTRIBUTR SELECTED :: "+dist)
+			conditionsList+=DistributorConditions.findAllWhere(distributor:dist)
+			//conditionsList.add(DistributorConditions.findAllWhere(distributor:dist))
 		}
+		//println ("-------------- listDistributorConditions ----------------")
+		//println conditionsList
 		//conditionsList = DistributorConditions.findAll("from DistributorConditions as dc where dc.distributor in (:distributors)",[distributors: distributorsSelected])
 		[cfaSelected:cfaSelected,distributorsSelected:distributorsSelected,conditionsList:conditionsList,conditionInstanceTotal:conditionsList.size()]
+		
+//		def dc = DistributorConditions.list()
+//		[conditionsList:dc,conditionInstanceTotal:dc.size()]
 	}
 	
 	def showDistributorConditions = {

@@ -10,7 +10,8 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><g:link class="list" controller="user" action="list"></g:link></span>
+        	<span class="menuButton"><g:link class="create" controller="user" action="menu">Menu</g:link></span>
+            <span class="menuButton"><g:link class="list" controller="distributor" action="addConditions">List Conditions</g:link></span>
         </div>
         <div class="body">
             <h1>Add New Conditions</h1>

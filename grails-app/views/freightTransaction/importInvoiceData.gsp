@@ -9,7 +9,7 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>            
+            <span class="menuButton"><g:link class="create" controller="user" action="menu">Menu</g:link></span>            
         </div>
         <div class="body">
             <h1>Upload Invoice Data</h1>
